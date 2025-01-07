@@ -2,62 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
-    
-    <link rel = "preconnect" href = "https://fonts.googleapis.com">
-    <link rel = "preconnect" href = "https://fonts.gstatic.com" crossrigin>
-    <link href = "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel = "stylesheet">
-    
-    <link rel = "stylesheet" href = "style.css" />
+    <title>Responsive To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <main class = "app">
-        <section class = "greeting">
-            <h2 class = "title">
-                What's up  <input type = "text" id = "name" placeholder = "Name here">
-            </h2>
-        </section>
+    <div class="app-container">
+        <header>
+            <h1>My To-Do List</h1>
+        </header>
 
-        <section class = "create-todo">
-            <h3>Create your to do list</h3>
-            <form id = "new-todo-form">
-                <input
-                type = "text"
-                name = "content"
-                id = "content"
-                placeholder = "write your task" />
+        <div class="tabs">
+            <button class="tab" onclick="showTasks('daily')">Daily</button>
+            <button class="tab" onclick="showTasks('weekly')">Weekly</button>
+            <button class="tab" onclick="showTasks('monthly')">Monthly</button>
+        </div>
 
-                <h4>Pick a category</h4>
-                <div class = "options">
+        <div id="daily" class="task-list">
+            <h2>Daily Tasks</h2>
+            <input type="text" id="daily-input" placeholder="Add daily task...">
+            <button onclick="addTask('daily')">Add</button>
+            <ul id="daily-tasks"></ul>
+        </div>
 
-                    <label>
-                        <input type = "radio" name = "category" id = "category1" value = "business" />
-                        <span class = "bubble business"></span>
-                        <div>Personal</div>
-                    </label>
+        <div id="weekly" class="task-list">
+            <h2>Weekly Tasks</h2>
+            <input type="text" id="weekly-input" placeholder="Add weekly task...">
+            <button onclick="addTask('weekly')">Add</button>
+            <ul id="weekly-tasks"></ul>
+        </div>
 
-                    <label>
-                        <input type = "radio" name = "category" id = "category2" value = "personal" />
-                        <span class = "bubble personal"></span>
-                        <div>Business</div>
-                    </label>
+        <div id="monthly" class="task-list">
+            <h2>Monthly Tasks</h2>
+            <input type="text" id="monthly-input" placeholder="Add monthly task...">
+            <button onclick="addTask('monthly')">Add</button>
+            <ul id="monthly-tasks"></ul>
+        </div>
+    </div>
 
-                </div>
-
-                <input type = "submit" value = "Add todo" />
-            </form>
-        </section>
-
-        <section class = "todo-list">
-            <h3>Todo List</h3>
-            <div class = "list" id = "todo-list">
-
-            </div>
-        </section>
-    </main>
-    
-    <script src = "app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

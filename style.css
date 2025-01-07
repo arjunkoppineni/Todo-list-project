@@ -1,231 +1,214 @@
+/* General styles */
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: 'montserrat', sans-serif;
-}
-
-input:not([type = "radio"]):not([type = "checkbox"]), button {
-   appearance: none;
-   border: none;
-   outline: none;
-   background: none;
-   cursor: initial;
+   font-family: 'Poppins', sans-serif; /* Clean and modern font */
 }
 
 body {
-   background: #f1eff5;
-   color: #000;
-}
-
-section {
-   margin-top: 2rem;
-   margin-bottom: 2rem;
-   padding-left: 1.5rem;
-   padding-right: 1.5rem;
-}
-
-h3 {
-   color: #000;
-   font-size: 1rem;
-   font-weight: 400;
-   margin-bottom: 0.5rem;
-}
-
-h4 {
-   color: #1d1d1e;
-   font-size: 0.875rem;
-   font-weight: 700;
-   margin-bottom: 0.5rem;
-}
-
-.greeting .title {
+   background: linear-gradient(135deg, #B3C7F9, #F0E6FF); /* Soft gradient with calm pastel colors */
+   color: #333;
    display: flex;
-}
-
-.greeting .title input {
-   margin-left: 0.5rem;
-   flex: 1 1 0%;
-   min-width: 0;
-}
-
-.greeting .title,
-.greeting .title input {
-   color: #000;
-   font-size: 1.5rem;
-   font-weight: 700;
-}
-
-.create-todo input[type="text"] {
-   display: block;
-   width: 100%;
-   font-size: 1.125rem;
-   padding: 1rem 1.5rem;
-   color: #000;
-   background-color:#FFF;
-   border-radius: 0.5rem;
-   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-   margin-bottom: 1.5rem;
-}
-
-.create-todo .options {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   grid-gap: 1rem;
-   margin-bottom: 1.5rem;
-}
-
-.create-todo .options label {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
    justify-content: center;
-   padding: 1.5rem;
-   background-color: #FFF;
-   border-radius: 0.5rem;
-   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-   cursor: pointer;
+   align-items: center;
+   height: 100vh;
+   background-size: cover;
+   background-position: center;
+   font-size: 14px;
+   line-height: 1.5;
 }
 
-input[type = "radio"], 
-input[type = "checkbox"] {
+.app-container {
+   background-color: white;
+   width: 70%;  /* Decreased width for smaller floating window */
+   max-width: 750px;
+   border-radius: 12px;
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+   overflow: hidden;
+   transform: scale(1);
+   transition: transform 0.3s ease;
+   background: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+}
+
+.app-container:hover {
+   transform: scale(1.02);
+}
+
+header {
+   background: linear-gradient(135deg, #A3C8FF, #A6C9E8); /* Softer gradient for header */
+   color: #3D4B67;
+   text-align: center;
+   padding: 25px 0;
+   font-size: 2rem; /* Decreased font size */
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+   border-bottom: 3px solid #f0f0f0;
+}
+
+.tabs {
+   display: flex;
+   justify-content: center;
+   background-color: #f8f9fb;
+   border-top: 2px solid #ddd;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+   flex: 1;
+   padding: 12px; /* Decreased padding */
+   background-color: #fff;
+   border: none;
+   font-size: 1rem; /* Decreased font size */
+   font-weight: 500;
+   color: #5A6A76;
+   cursor: pointer;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab:hover {
+   background-color: #A3C8FF;
+   color: white;
+}
+
+.tab:focus {
+   outline: none;
+}
+
+.task-list {
    display: none;
+   padding: 20px;
 }
 
-.bubble {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 20px;
-   height: 20px;
-   border-radius: 50%;
-   border: 2px solid rgb(0, 0, 255);
-   box-shadow: 0px 0px 4px rgb(0, 0, 255);
-}
-
-.bubble.personal {
-   border-color: rgb(255, 0, 0);
-   box-shadow: 0px 0px 4px rgb(255, 0, 0);
-}
-
-.bubble::after {
-   content: "";
+.task-list.active {
    display: block;
-   opacity: 0;
-   width: 0px;
-   height: 0px;
-   background-color: rgb(0, 0, 255);
-   box-shadow: 0px 0px 4px rgb(0, 0, 255);
-   border-radius: 50%;
-   transition: 0.2s ease-in-out;
 }
 
-.bubble.personal::after {
-   background-color: rgb(255, 0, 0);
-   box-shadow: 0px 0px 4px rgb(255, 0, 0);
+input[type="text"] {
+   width: 80%;
+   padding: 10px; /* Decreased padding */
+   margin-top: 10px; /* Decreased margin */
+   border-radius: 25px;
+   border: 1px solid #ddd;
+   font-size: 1rem; /* Decreased font size */
+   background-color: #f0f0f0;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   transition: background-color 0.3s ease;
 }
 
-input:checked ~ .bubble::after {
-   width: 10px;
-   height: 10px;
-   opacity: 1;
+input[type="text"]:focus {
+   background-color: #e0e7fe;
+   border-color: #A3C8FF;
+   outline: none;
 }
 
-.create-todo .options label div {
-   color: #292929;
-   font-size: 1.125rem;
-   margin-top: 1rem;
-}
-
-.create-todo input[type = "submit"] {
-   display: block;
-   width: 100%;
-   align-items: center;
-   font-size: 1.125rem;
-   padding: 1rem 1.5rem;
-   color: #FFF;
-   background-color: #252525;
-   border-radius: 0.5rem;
-   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.532);
+button {
+   padding: 10px 18px;
+   background-color: #A3C8FF;
+   color: white;
+   border: none;
+   border-radius: 25px;
    cursor: pointer;
-   transition: 0.2s ease-in-out;
+   font-size: 1rem; /* Decreased font size */
+   margin-left: 10px;
+   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.create-todo input[type = "submit"]:hover {
-   opacity: 0.85;
+button:hover {
+   background-color: #7BB7FF;
+   transform: scale(1.05);
 }
 
-.todo-list .list {
-   margin: 1rem 0;
+ul {
+   margin-top: 20px;
+   list-style-type: none;
 }
 
-.todo-list .todo-item {
+ul li {
+   background-color: #f9f9f9;
+   padding: 12px;
+   margin-bottom: 12px; /* Reduced margin */
+   border-radius: 12px;
    display: flex;
+   justify-content: space-between;
    align-items: center;
-   background-color: #FFF;
-   padding: 1rem;
-   border-radius: 0.5rem;
-   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.303);
-   margin-bottom: 1rem;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.todo-item label {
-   display: block;
-   margin-right: 1rem;
-   cursor: pointer;
+ul li:hover {
+   transform: translateY(-4px); /* Slight lift effect */
+   background-color: #e8f3fe;
 }
 
-.todo-item .todo-content {
-   flex: 1 1 0%;
-}
-
-.todo-item .todo-content input {
-   color: #000;
-   font-size: 1.125rem;
-}
-
-.todo-item .actions {
-   display: flex;
-   align-items: center;
-}
-
-.todo-item .actions button {
-   display: block;
-   padding: 0.5rem;
-   border-radius: 0.25rem;
-   color: #FFF;
-   cursor: pointer;
-   transition: 0.2s ease-in-out;
-}
-
-.todo-item .actions button:hover {
-   opacity: 0.75;
-}
-
-.todo-item .actions .edit {
-   margin-right: 0.5rem;
-   background-color: #272629;
-}
-
-.todo-item .actions .delete {
-   background-color: #e2462b;
-}
-
-.todo-item.done .todo-content input {
+ul li.completed {
+   background-color: #D4EDDA;
    text-decoration: line-through;
-   color: #252525;
+   color: #6C757D;
 }
+
+.delete-btn {
+   background-color: #FF5C8D;
+   color: white;
+   border: none;
+   padding: 8px 12px;
+   border-radius: 25px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+   background-color: #FF3B65;
+}
+
+.complete-btn {
+   background-color: #28a745;
+   color: white;
+   border: none;
+   padding: 8px 12px;
+   border-radius: 25px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.complete-btn:hover {
+   background-color: #218838;
+}
+
+/* Add texture or subtle pattern to background */
+body::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: url('https://www.transparenttextures.com/patterns/geometry.png'); /* Subtle texture */
+   opacity: 0.05; /* Very subtle texture */
+}
+
+/* Media Query for smaller screens */
 @media (max-width: 768px) {
-
-   .todo-item {
-      flex-direction: column;
-      align-items: flex-start;
+   .app-container {
+       width: 85%;
    }
 
-   .todo-item label {
-      margin-bottom: 1rem;
+   header {
+       font-size: 1.8rem; /* Slightly smaller font for smaller screens */
    }
-   .todo-item .todo-content input {
-      padding: 10px;
+
+   .tabs {
+       font-size: 0.95rem; /* Slightly smaller font */
+   }
+
+   .tab {
+       padding: 10px;
+   }
+
+   input[type="text"] {
+       width: 75%;
+   }
+
+   button {
+       padding: 9px 16px;
    }
 }
